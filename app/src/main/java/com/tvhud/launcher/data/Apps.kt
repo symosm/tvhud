@@ -70,7 +70,18 @@ object Apps {
                 )
             }
         }
-        return result.values.sortedBy { it.label.lowercase() }
+        // Some TVs ship two packages with the same name (e.g. a pre-installed stub plus the real app).
+        // Keep one per name: a known package first, then one with a TV banner, then the first TV-launcher entry.
+        val deduped = result.values
+            .groupBy { it.label.trim().lowercase() }
+            .map { (_, same) ->
+                same.minByOrNull { app ->
+                    val known = preferredOrder.indexOf(app.pkg).let { if (it >= 0) 0 else 1 }
+                    val banner = if (app.banner != null) 0 else 1
+                    known * 10 + banner * 5 + same.indexOf(app).coerceAtMost(4)
+                }!!
+            }
+        return deduped.sortedBy { it.label.lowercase() }
     }
 
     /** Home row: the user's own order if they set one, else popular apps + other streaming apps. */
