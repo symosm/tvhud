@@ -12,15 +12,25 @@ android {
         applicationId = "com.tvhud.launcher"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.1"
+    }
+
+    signingConfigs {
+        // One fixed key for every build, so updates install over the previous version.
+        // (This key only proves updates come from the same project; it guards no secrets.)
+        create("tvhud") {
+            storeFile = file("tvhud-release.jks")
+            storePassword = "tvhud-keystore"
+            keyAlias = "tvhud"
+            keyPassword = "tvhud-keystore"
+        }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            // Signed with the standard debug key so the APK installs straight away.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("tvhud")
         }
     }
 
