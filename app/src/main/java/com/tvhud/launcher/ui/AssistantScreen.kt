@@ -168,10 +168,11 @@ fun AssistantScreen(prefs: Prefs, allApps: List<AppEntry>) {
     if (askKey) {
         TextDialog(
             title = "Connect the assistant",
-            hint = "sk-ant-…",
+            hint = "AIza…",
             initial = prefs.aiKey,
-            note = "The assistant runs on Claude. Create an API key at console.anthropic.com (API keys › Create key) and paste " +
-                "or type it here. Each question costs a fraction of a cent on your Anthropic account. The key stays on this TV.",
+            note = "The assistant runs on Google Gemini's free tier. On your phone or laptop, open aistudio.google.com/apikey, " +
+                "sign in with Google and press “Create API key”. Type or send the key here (it starts with AIza). " +
+                "No payment needed. The key stays on this TV. Note: Google may use free-tier questions to improve its products.",
             onDismiss = { askKey = false },
             onDone = { prefs.aiKey = it; askKey = false },
         )

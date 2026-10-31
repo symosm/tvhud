@@ -6,7 +6,7 @@ TV Hud replaces the Google TV home screen with a fast, clean, ad-free one.
 
 - **Home:** big clock, date and live weather over a night-sky backdrop. Your apps show their official logos, and your HDMI consoles have rename-able cards (e.g. "PS5").
 - **All apps:** search, categories (Streaming, Music, Games, Tools), hide apps, add or remove apps on Home, uninstall.
-- **Ask AI:** a built-in assistant powered by Claude. Ask by voice or by typing, and say things like "open Netflix".
+- **Ask AI:** a built-in assistant powered by Google Gemini (free tier). Ask by voice or by typing, and say things like "open Netflix".
 - **Play from PC:** your recently played Steam games, a Wake-on-LAN button to switch your PC on, and controller status. Play opens Steam Link.
 - **Ad-block browser:** blocks ads, trackers and pop-ups. Has zoom, a desktop-site switch and full-screen video.
 - **Quick settings:** Wi-Fi, Bluetooth and controllers, picture, sound, screensaver, weather city, and "Free up memory".
@@ -95,7 +95,7 @@ Notes:
 | Feature | Where | What you need |
 |---|---|---|
 | Weather city | Settings (gear) › Weather city | Just the city name. Weather is free from Open-Meteo. |
-| Ask AI | Home › Ask AI › API key | An Anthropic API key from **console.anthropic.com**. Each question costs a fraction of a cent on your own account. |
+| Ask AI | Home › Ask AI › API key | A free Gemini key from **aistudio.google.com/apikey** (starts with `AIza`). No payment needed. To avoid typing it with the remote, select the box on the TV and run `adb shell input text YOUR-KEY` on the laptop. |
 | Steam games list | Play from PC › "Show your Steam games here" | Your Steam ID and a free key from **steamcommunity.com/dev/apikey**. Steam privacy must have "Game details" set to Public. |
 | Wake PC | Play from PC › Set up | Your PC's MAC address (`getmac /v` on Windows), with Wake-on-LAN turned on in the BIOS. Works best when the PC uses an Ethernet cable. |
 | Playing PC games | Play from PC › Play | **Steam Link** (free on Play Store) on the TV, Steam open on the PC, and a Bluetooth controller. |
